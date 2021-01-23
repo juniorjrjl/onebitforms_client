@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+    app:
+        depends_on:
+            - 'box'
+        build:
+            context: .
+        ports:
+        - 4200:4200
+        volumes:
+            - '.:/onbitforms-client:cached'
+            - 'box:/node_modules'
+        stdin_open: true
+        tty: true
+        command:  bash start.sh
+
+    box:
+        image: busybox
+        volumes: 
+            - box:/box
+volumes:
+  box:
