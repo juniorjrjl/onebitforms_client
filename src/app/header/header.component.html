@@ -1,14 +1,21 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <a href="#" class="brand-logo left" routerLink="/">
-      <img src="/assets/images/logo.png" alt="">
-    </a>
-    <span class="nav-space"></span>
-    <button mat-flat-button color="primary" (click)="navigateToPage('/login')">
-      Login
-    </button>
-    <button mat-flat-button color="primary" (click)="navigateToPage('/register')">
-      Register
-    </button>
-  </mat-toolbar-row>
-</mat-toolbar>
+<div class="header">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <a href="#" class="brand-logo left" routerLink="/">
+        <img src="/assets/images/logo.png" alt="">
+      </a>
+      <span class="nav-space"></span>
+      <div *ngIf="tokenService.currentUserData == null">
+        <button mat-flat-button color="primary" (click)="navigateToPage('/login')">
+          Login
+        </button>
+        <button mat-flat-button color="primary" (click)="navigateToPage('/register')">
+          Register
+        </button>
+      </div>
+      <button mat-flat-button color="primary" (click)="signOut()" *ngIf="tokenService.currentUserData != null">
+        Logout
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

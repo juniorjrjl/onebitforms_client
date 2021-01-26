@@ -1,0 +1,53 @@
+<div class="login">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <h3 class="title">Login</h3>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <form #signInForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <mat-form-field style="width: 100%">
+                        <input matInput type="text" class="form-control" placeholder="Email" required [(ngModel)]="_signInData.login" name="email">
+                    </mat-form-field>
+                </div>
+                <div class="col"></div>
+            </div>
+
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <mat-form-field style="width: 100%">
+                        <input matInput type="password" placeholder="Password" required [(ngModel)]="_signInData.password" name="password">
+                    </mat-form-field>
+                </div>
+                <div class="col"></div>
+            </div>
+
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <button type="submit" mat-raised-button color="primary" [disabled]="!signInForm.form.valid">
+                        Sign In <mat-icon>send</mat-icon>
+                    </button>
+                </div>
+                <div class="col"></div>
+            </div>
+
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <span class="pull-right">
+                        <a href="/forgot_password">Forgot Password?</a>
+                    </span>
+                </div>
+                <div class="col"></div>
+            </div>
+        </form>
+    </div>
+</div>

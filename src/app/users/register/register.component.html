@@ -1,0 +1,36 @@
+<div class="register">
+    <div class="container">
+        <div class="row">
+        <div class="col">
+    
+    
+            <div class="row">
+            <h3 class="title">Register</h3>
+            </div>
+    
+            <div>
+            <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <mat-form-field style="width: 100%">
+                        <input matInput type="text" class="form-control" placeholder="Email" required [(ngModel)]="_registerData.login" name="email">
+                    </mat-form-field>
+                    <mat-form-field style="width: 100%">
+                        <input matInput type="password" placeholder="Password" required [(ngModel)]="_registerData.password" name="password">
+                    </mat-form-field>
+                    <mat-form-field style="width: 100%">
+                        <input matInput type="password" placeholder="Password Confirmation" required [(ngModel)]="_registerData.passwordConfirmation" name="passwordConfirmation">
+                    </mat-form-field>
+                </div>
+                
+                <div class="row">
+                    <button type="submit" mat-raised-button color="primary" [disabled]="!registerForm.form.valid">
+                        Sign Up <mat-icon>send</mat-icon>
+                    </button>
+                </div>
+            </form>
+            </div>
+    
+        </div>
+        </div>
+    </div>
+</div>
