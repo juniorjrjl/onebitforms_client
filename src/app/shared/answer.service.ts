@@ -11,11 +11,11 @@ export class AnswerService {
   getAnswers(form_id) {
     let params = new HttpParams();
     params = params.set('form_id', form_id);
-    return this.http.get('http://localhost:3000/api/v1/answers', { params }).subscribe(res => res);
+    return this.http.get<String>('http://localhost:3000/api/v1/answers', { params });
   }
  
   getAnswer(answer_id) {
-    return this.http.get(`http://localhost:3000/api/v1/answers/${answer_id}`).subscribe(res => res);
+    return this.http.get(`http://localhost:3000/api/v1/answers/${answer_id}`);
   }
  
   createAnswer(answer_params) {
@@ -23,7 +23,7 @@ export class AnswerService {
   }
  
   destroyAnswer(answer_id) {
-    return this.http.delete(`http://localhost:3000/api/v1/answers/${answer_id}`).subscribe(res => res);
+    return this.http.delete(`http://localhost:3000/api/v1/answers/${answer_id}`);
   }
 
 }

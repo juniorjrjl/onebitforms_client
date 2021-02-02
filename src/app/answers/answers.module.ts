@@ -15,14 +15,20 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatListModule } from '@angular/material/list';
+import { AllComponent } from './answer-list/all/all.component';
+import { IndividualComponent } from './answer-list/individual/individual.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
-  declarations: [AnswerListComponent, AnswerNewComponent, GraphNumberComponent, GraphTextComponent, GraphBooleanComponent, IndividualDetailsComponent],
+  declarations: [AnswerListComponent, AnswerNewComponent, GraphNumberComponent, GraphTextComponent, GraphBooleanComponent, IndividualDetailsComponent, AllComponent, IndividualComponent],
   imports: [
     CommonModule,
     CoreFormsModule,
 
+    ChartsModule,
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
@@ -30,7 +36,9 @@ import { MatRadioModule } from '@angular/material/radio';
     MatTooltipModule,
     MatDialogModule,
     MatIconModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTabsModule,
+    MatListModule
   ]
 })
 export class AnswersModule { }
