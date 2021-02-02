@@ -1,1 +1,73 @@
-<p>answer-new works!</p>
+<div [style.background]="form.primary_color" class="answer-new">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h5>Description</h5>
+                <mat-card>
+                    <mat-card-content>
+                        <h5>{{ form.title }}</h5>
+                        <p>{{ form.description }}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h5 class="questions">Questions</h5>
+    
+                <div *ngIf="answer">
+                    <form #a="ngForm" (ngSubmit)="onSubmit(a)">
+                        <div class="question-card" *ngFor="let questions_answer of answer.questions_answers; let idx = index">
+                        <mat-card>
+                            <mat-card-content>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>{{ idx + 1 }} - {{ questions_answer.question.title }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4" *ngIf="questions_answer.question.kind == 'boolean'">
+                                        <mat-radio-group [(ngModel)]="questions_answer.value" name="value">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <mat-radio-button name="options_{{ questions_answer.question.id }}"
+                                                        id="yes_{{ questions_answer.question.id }}" [value]="1">Yes</mat-radio-button>
+                                                </div>
+                                                <div class="col">
+                                                    <mat-radio-button name="options_{{ questions_answer.question.id }}"
+                                                        id="no_{{ questions_answer.question.id }}"[value]="0">No</mat-radio-button>
+                                                </div>
+                                            </div>
+                                        </mat-radio-group>
+                                    </div>
+                                    <div class="col" *ngIf="questions_answer.question.kind == 'short_text'">
+                                        <mat-form-field class="form-field">
+                                            <input matInput type="text" placeholder="Your Answer..." name="value" [(ngModel)]="questions_answer.value" #value="ngModel">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-2" *ngIf="questions_answer.question.kind == 'integer'">
+                                        <mat-form-field class="form-field">
+                                            <input matInput type="number" placeholder="0" name="value" [(ngModel)]="questions_answer.value" #value="ngModel">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col" *ngIf="questions_answer.question.kind == 'long_text'">
+                                        <mat-form-field class="form-field">
+                                            <textarea placeholder="Your Question" cdkTextareaAutosize rows="4" matInput type="text" name="value" [(ngModel)]="questions_answer.value" #value="ngModel">
+                                            </textarea>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                        </div>
+                        <div class="actions">
+                            <button type="submit" mat-raised-button color="primary" [disabled]="!a.valid" *ngIf="form.enable != false">
+                                <mat-icon>send</mat-icon>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.form-list{
+
+    .container{
+        margin-top: 4%;
+    }
+    
+    .card-header{
+        justify-content: center;
+        background-color: #fff;
+        border: none;
+    }
+
+    .description{
+        text-align: justify;
+        margin-left: 20px;
+    }
+    
+    .form{
+        margin-bottom: 0px;    
+    }
+    
+    .btn{
+        width: 120px;
+    }
+
+    .fixed-action-btn{
+        
+        position: fixed;
+        bottom: 45px;
+        right: 30px; 
+    }
+}

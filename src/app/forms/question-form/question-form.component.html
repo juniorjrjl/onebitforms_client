@@ -1,0 +1,44 @@
+<div class="question-form">
+    <mat-card class="card">
+        <mat-card-content class="card-content">
+            <form #q="ngForm" (ngSubmit)="onSubmit(q)">
+                <div class="question">
+                    <div class="row">
+                        <div class="col-8">
+                            <mat-form-field class="form-field">
+                                <textarea cdkTextareaAutosize placeholder="Your Question" rows="2" matInput 
+                                    class="title" name="title" [(ngModel)]="question.title" #title="ngModel" required></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-4">
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>Kind</mat-label>
+                                <mat-select [(ngModel)]="question.kind" #kind="ngModel" name="kind"required>
+                                    <mat-option value="short_text">Short Text</mat-option>
+                                    <mat-option value="long_text">Long Text</mat-option>
+                                    <mat-option value="integer">Integer</mat-option>
+                                    <mat-option value="boolean">Boolean</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row float-right">
+                        <div class="col" *ngIf="question.id !== undefined">
+                            <button mat-raised-button color="warn" matTooltip="Delete" (click)="deleteQuestion()">
+                                <mat-icon>delete_forever</mat-icon>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="submit" mat-raised-button color="primary" [disabled]="!q.valid" class="btn" *ngIf="question.id == undefined">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                            <button type="submit" mat-raised-button color="primary" [disabled]="!q.valid" class="btn" *ngIf="question.id !== undefined">
+                                <mat-icon>edit</mat-icon>
+                            </button>             
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

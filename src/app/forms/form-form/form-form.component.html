@@ -1,0 +1,65 @@
+<div class="form-form">
+    <div class="row">
+        <div class="col m8 offset-m2">
+            <div *ngIf="form.id == undefined">
+                <h5 class="blue-text text-lighten-2">New Form</h5>
+            </div>
+            <div *ngIf="form.id !== undefined">
+                <div class="row">
+                    <div class="col-11">
+                        <h5 class="blue-text text-lighten-2">Define Form</h5>
+                    </div>
+                    <div class="col">
+                        <p>
+                            <button mat-icon-button color="primary" [disabled]="!f.valid" class="btn" (click)="navigateToPage('/answers/' + form.slug + '/new')">
+                                <mat-icon>remove_red_eye</mat-icon>
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                        <div class="row title">
+                            <div class="col-7">
+                                <mat-form-field class="form-field">
+                                    <input matInput type="text" class="form-control" placeholder="Title" required [(ngModel)]="form.title" name="title" required #title="ngModel">
+                                </mat-form-field>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <input [(colorPicker)]="form.primary_color" [style.background]="form.primary_color" class="color-picker" />
+                                    </div>
+                                    <div class="col">
+                                        <mat-slide-toggle id="switch-id" [(ngModel)]="form.enable" name="primary_color" class="switch-enable">
+                                        </mat-slide-toggle>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row description">
+                            <div class="col">
+                                <mat-form-field class="form-field">
+                                    <textarea cdkTextareaAutosize rows="4" matInput type="text" class="form-control materialize-textarea" placeholder="Description" required [(ngModel)]="form.description" name="description" required #description="ngModel">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row float-right submit-button">
+                            <div class="col">
+                                <button type="submit" mat-raised-button color="primary" [disabled]="!f.valid" class="btn"*ngIf="form.id == undefined">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                                <button type="submit" mat-raised-button color="primary" [disabled]="!f.valid" class="btn"*ngIf="form.id !== undefined">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

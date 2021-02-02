@@ -9,23 +9,23 @@ import { AngularTokenService, RegisterData } from 'angular-token';
 })
 export class RegisterComponent{
 
-  _registerData: RegisterData = <RegisterData>{};
+  registerData: RegisterData = <RegisterData>{};
 
-  constructor(private _tokenService: AngularTokenService, private _snackBar: MatSnackBar) { }
+  constructor(private tokenService: AngularTokenService, private snackBar: MatSnackBar) { }
 
   onSubmit() {
-    this._tokenService.registerAccount(this._registerData).subscribe(
+    this.tokenService.registerAccount(this.registerData).subscribe(
       res => {
-        this._registerData = <RegisterData>{};
-        this._snackBar.open('OneBitForms', 'Success, please confirm your Email', {duration: 8000, verticalPosition: 'top', horizontalPosition: 'end'});
+        this.registerData = <RegisterData>{};
+        this.snackBar.open('OneBitForms', 'Success, please confirm your Email', {duration: 8000, verticalPosition: 'top', horizontalPosition: 'end'});
       }, error => {
-        this._registerData = <RegisterData>{};
+        this.registerData = <RegisterData>{};
         if ( error.status !== 0 ) {
           for (const message of error.error.errors.full_messages) {
-            this._snackBar.open('OneBitForms', message, {duration: 8000, verticalPosition: 'top', horizontalPosition: 'end'});
+            this.snackBar.open('OneBitForms', message, {duration: 8000, verticalPosition: 'top', horizontalPosition: 'end'});
           }
         } else {
-          this._snackBar.open('OneBitForms', 'Connection Error', {duration: 8000, verticalPosition: 'top', horizontalPosition: 'end'});
+          this.snackBar.open('OneBitForms', 'Connection Error', {duration: 8000, verticalPosition: 'top', horizontalPosition: 'end'});
         }
       }
     );

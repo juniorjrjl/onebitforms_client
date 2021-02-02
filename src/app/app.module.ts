@@ -7,6 +7,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { FormService } from './shared/form.service';
+import { QuestionService } from './shared/question.service';
+import { AnswerService } from './shared/answer.service';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -34,7 +36,7 @@ import { MatInputModule } from '@angular/material/input';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
+    
     ColorPickerModule,
     ChartsModule,
     FormsModule,
@@ -47,15 +49,16 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     AngularTokenModule.forRoot({
       apiPath: 'http://localhost:3000/api/v1',
-      signInRedirect: '/login',
-      
+      signInRedirect: '/login'
     })
   ],
   exports: [
   ],
   providers: [
     AngularTokenModule,
-    FormService
+    FormService,
+    QuestionService,
+    AnswerService
   ],
   bootstrap: [AppComponent],
 })

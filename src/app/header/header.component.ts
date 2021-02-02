@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
 
   tokenService: AngularTokenService
 
-  constructor(_tokenService: AngularTokenService, private router: Router, private _snackBar: MatSnackBar) { 
-    this.tokenService = _tokenService;
+  constructor(tokenService: AngularTokenService, private router: Router, private snackBar: MatSnackBar) { 
+    this.tokenService = tokenService;
   }
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   signOut() {
     this.tokenService.signOut().subscribe(
       res =>      { },
-      error =>    this._snackBar.open('OneBitForms', 'Error in Logout', {duration: 8000, verticalPosition: 'top', horizontalPosition: 'end'})
+      error =>    this.snackBar.open('OneBitForms', 'Error in Logout', {duration: 8000, verticalPosition: 'top', horizontalPosition: 'end'})
     );
   }
 

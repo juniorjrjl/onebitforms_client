@@ -10,23 +10,23 @@ export class FormService {
   constructor(private http: HttpClient) { }
  
   getForms() {
-    return this.http.get('forms').subscribe(res => res);
+    return this.http.get<string>('http://localhost:3000/api/v1/forms');
   }
  
   getForm(form_id) {
-    return this.http.get('forms/' + form_id).subscribe(res => res);
+    return this.http.get('http://localhost:3000/api/v1/forms/' + form_id);
   }
  
   createForm(form_params) {
-    return this.http.post('forms', form_params).subscribe(res => res);
+    return this.http.post('http://localhost:3000/api/v1/forms', form_params);
   }
  
   updateForm(form_id, form_params) {
-    return this.http.put(`forms/${form_id}`, form_params).subscribe(res => res);
+    return this.http.put(`http://localhost:3000/api/v1/forms/${form_id}`, form_params);
   }
  
   destroyForm(form_id) {
-    return this.http.delete(`forms/${form_id}`).subscribe(res => res);
+    return this.http.delete(`http://localhost:3000/api/v1/forms/${form_id}`);
   }
 
 }

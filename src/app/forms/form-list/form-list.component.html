@@ -1,1 +1,52 @@
-<p>form-list works!</p>
+<div class="form-list">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h5 class="">Your Forms</h5>
+                <div *ngIf="forms?.length > 0">
+                    <mat-card *ngFor="let form of forms">
+                                <mat-card-header class="card-header">
+                                    <mat-card-title>
+                                        {{form.title}}
+                                    </mat-card-title>
+                                </mat-card-header>
+                        <mat-card-content>
+                            <p class="description">{{ form.description | slice:0:120 }}</p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div class="row">
+                                <div class="col">
+                                    <app-active [form]="form"></app-active>
+                                </div>
+                                <div class="col">
+                                    <button type="submit" mat-raised-button color="basic" matTooltip="Answers" (click)="navigateToPage('/answers/' + form.id)">
+                                        <mat-icon>question_answer</mat-icon>
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button type="submit" mat-raised-button color="primary" matTooltip="Edit" (click)="navigateToPage('/forms/' + form.slug)">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button mat-raised-button color="warn" matTooltip="Delete" (click)="deleteForm(form)">
+                                        <mat-icon>delete_forever</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-action-btn">
+        <button type="submit" mat-fab color="primary" (click)="navigateToPage('/forms/new')">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>
