@@ -2,9 +2,11 @@
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
-            <h5 class="list-title">Create Questions</h5>
-            <div *ngFor="let question of questions">
-                <app-question-form [form_id]="form_id" [questions]="questions" [question]="question"></app-question-form>
+            <h5 class="list-title title-page">Create Questions</h5>
+            <div cdkDropList (cdkDropListDropped)="drop($event)">
+                <div cdkDrag *ngFor="let question of questions">
+                    <app-question-form [form_id]="form_id" [questions]="questions" [question]="question"></app-question-form>
+                </div>
             </div>
             <app-question-form [form_id]="form_id" [questions]="questions" [question]="question_new"></app-question-form>    
         </div>

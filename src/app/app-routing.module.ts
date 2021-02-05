@@ -7,12 +7,14 @@ import { FormEditComponent } from './forms/form-edit/form-edit.component';
 import { FormListComponent } from './forms/form-list/form-list.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 import { LoginComponent } from './users/login/login.component';
 import { RegisterComponent } from './users/register/register.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', component: HomeComponent},
-  {path: 'not-found', component: NotFoundComponent},
+  { path: '', pathMatch: 'full', component: HomeComponent},
+  { path: 'thank-you', component: ThankYouComponent},
+  { path: 'not-found', component: NotFoundComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forms', component: FormListComponent, canActivate: [AngularTokenService]},

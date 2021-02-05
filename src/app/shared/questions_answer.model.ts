@@ -7,9 +7,11 @@ export class QuestionsAnswer {
     question: Question;
  
     constructor(questionsAnswerInfo: any) {
+        if (questionsAnswerInfo){
         this.id = questionsAnswerInfo.id;
         this.value = questionsAnswerInfo.value;
         this.answer_id = questionsAnswerInfo.answer_id;
         this.question = questionsAnswerInfo.question;
+        }
     }
 }

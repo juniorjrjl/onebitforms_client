@@ -53,6 +53,12 @@ export class AnswerNewComponent implements OnInit {
       for (const question of this.form.questions) {
         this.answer.questions_answers.push(new QuestionsAnswer({question: question}));
       }
+      this.router.navigateByUrl('thank-you')
     }, error => this.snackBar.open('OneBitForms','Problem in send answer', {duration: 8000, verticalPosition: 'top', horizontalPosition: 'end'}));
   }
+
+  clearRadio(i){
+    this.answer.questions_answers[i].value = undefined;
+  }
+
 }

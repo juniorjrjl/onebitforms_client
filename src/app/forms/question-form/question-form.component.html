@@ -4,13 +4,17 @@
             <form #q="ngForm" (ngSubmit)="onSubmit(q)">
                 <div class="question">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-7">
                             <mat-form-field class="form-field">
                                 <textarea cdkTextareaAutosize placeholder="Your Question" rows="2" matInput 
                                     class="title" name="title" [(ngModel)]="question.title" #title="ngModel" required></textarea>
                             </mat-form-field>
                         </div>
-                        <div class="col-4">
+                        <div class="col-2">
+                            <label>Required</label>
+                            <mat-slide-toggle [(ngModel)]="question.required" name="required" #required="ngModel"></mat-slide-toggle>
+                        </div>
+                        <div class="col-3">
                             <mat-form-field class="form-field" appearance="fill">
                                 <mat-label>Kind</mat-label>
                                 <mat-select [(ngModel)]="question.kind" #kind="ngModel" name="kind"required>

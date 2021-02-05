@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
 import { AllComponent } from './answer-list/all/all.component';
 import { IndividualComponent } from './answer-list/individual/individual.component';
 import { ChartsModule } from 'ng2-charts';
@@ -38,7 +39,8 @@ import { ChartsModule } from 'ng2-charts';
     MatIconModule,
     MatRadioModule,
     MatTabsModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
   ]
 })
 export class AnswersModule { }

@@ -1,1 +1,45 @@
-<p>individual works!</p>
+<div class="individual">
+    <div class="container">
+        <div class="row selects">
+            <div class="col">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Kind</mat-label>
+                    <mat-select name="kind" [(value)]="selectedKind" (selectionChange)="fillSelectQuestion()">
+                        <mat-option value="short_text">Short Text</mat-option>
+                        <mat-option value="long_text">Long Text</mat-option>
+                        <mat-option value="integer">Integer</mat-option>
+                        <mat-option value="boolean">Boolean</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Question</mat-label>
+                    <mat-select name="kind" [disabled]="selectedKind === undefined" [(value)]="selectedQuestion">
+                        <div *ngIf="selectQuestions.length > 0">
+                        <mat-option *ngFor="let question of selectQuestions" [value]="question">{{question.title}}</mat-option>
+                        </div>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row" *ngIf="selectedQuestion !== undefined">
+            <div class="col">
+                <h5 class="title title-page">{{ selectedQuestion.title }}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" *ngIf="selectedQuestion !== undefined">
+                <div *ngIf="selectedQuestion.kind == 'integer'">
+                    <app-graph-number [questions_answers]="selectedQuestion.questions_answers"></app-graph-number>          
+                </div>
+                <div *ngIf="selectedQuestion.kind == 'boolean'">
+                    <app-graph-boolean [questions_answers]="selectedQuestion.questions_answers"></app-graph-boolean>          
+                </div>
+                <div *ngIf="selectedQuestion.kind == 'short_text' || selectedQuestion.kind == 'long_text' ">
+                    <app-graph-text [questions_answers]="selectedQuestion.questions_answers"></app-graph-text>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

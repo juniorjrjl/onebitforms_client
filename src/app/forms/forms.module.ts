@@ -18,6 +18,7 @@ import { DialogComponent } from './shared/dialog/dialog.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [FormListComponent, FormEditComponent, ActiveComponent, FormFormComponent, QuestionListComponent, QuestionFormComponent, DialogComponent],
@@ -34,7 +35,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatTooltipModule,
     MatDialogModule,
     MatSelectModule,
-    ColorPickerModule
+    ColorPickerModule,
+    DragDropModule
   ],
   exports: [
     FormListComponent
