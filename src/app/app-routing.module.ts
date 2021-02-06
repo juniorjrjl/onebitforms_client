@@ -8,8 +8,10 @@ import { FormListComponent } from './forms/form-list/form-list.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import { ResetPasswordRequestComponent } from './users/reset-password-request/reset-password-request.component';
 import { LoginComponent } from './users/login/login.component';
 import { RegisterComponent } from './users/register/register.component';
+import { ResetPasswordComponent } from './users/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent},
@@ -22,7 +24,9 @@ const routes: Routes = [
   { path: 'forms/:id', component: FormEditComponent, canActivate: [AngularTokenService]},
   { path: 'answers/:id/new', component: AnswerNewComponent, canActivate: [AngularTokenService]},
   { path: 'answers/:id', component: AnswerListComponent, canActivate: [AngularTokenService]},
-  {path: '**', redirectTo: 'not-found'}
+  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'reset-password-request', component: ResetPasswordRequestComponent },
+  { path: '**', redirectTo: 'not-found'}
 ];
 
 @NgModule({

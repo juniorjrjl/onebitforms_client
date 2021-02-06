@@ -9,10 +9,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordRequestComponent } from './reset-password-request/reset-password-request.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, ResetPasswordComponent, ResetPasswordRequestComponent],
   imports: [
     CommonModule,
     FormsModule,

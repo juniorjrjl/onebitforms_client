@@ -51,7 +51,8 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
     MatInputModule,
     AngularTokenModule.forRoot({
       apiPath: 'http://localhost:3000/api/v1',
-      signInRedirect: '/login'
+      signInRedirect: '/login',
+      resetPasswordCallback: 'http://localhost:4200/reset-password'
     })
   ],
   exports: [
